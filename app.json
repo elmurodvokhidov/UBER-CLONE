@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "UBER-CLONE",
-    "slug": "UBER-CLONE",
+    "name": "Uber",
+    "slug": "uber",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
