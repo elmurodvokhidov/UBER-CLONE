@@ -7,6 +7,7 @@ import { useLocationStore } from '@/store';
 import { useUser } from '@clerk/clerk-expo'
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
+import { Href, router } from 'expo-router';
 
 const recentRides = [
   {
@@ -115,7 +116,10 @@ export default function Page() {
 
   const handleSignOut = () => { };
 
-  const handleDestinationPress = () => { };
+  const handleDestinationPress = (location: { latitude: number; longitude: number; address: string; }) => {
+    setDestinationLocation(location);
+    router.push("/(root)/find-ride");
+  };
 
   useEffect(() => {
     const requestLocation = async () => {
@@ -136,7 +140,7 @@ export default function Page() {
         // longitude: location.coords.longitude,
         latitude: 37.78825,
         longitude: -122.4324,
-        address: `${address[0].name}, ${address[0].region}}`
+        address: `${address[0].name}, ${address[0].region}`
       })
     };
 
