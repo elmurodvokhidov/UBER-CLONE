@@ -6,7 +6,15 @@ import Map from './Map'
 import { useRef } from 'react'
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet'
 
-const RideLayout = ({ children, title, snapPoints, }: { children: React.ReactNode; title: string; snapPoints: string[] }) => {
+const RideLayout = ({
+    children,
+    title,
+    snapPoints,
+}: {
+    children: React.ReactNode;
+    title: string;
+    snapPoints?: string[];
+}) => {
     const bottomSheetRef = useRef<BottomSheet>(null);
 
     return (
