@@ -18,7 +18,7 @@ const RideLayout = ({
     const bottomSheetRef = useRef<BottomSheet>(null);
 
     return (
-        <GestureHandlerRootView>
+        <GestureHandlerRootView className='flex-1'>
             <View className='flex-1 bg-white'>
                 <View className='flex flex-col h-screen bg-blue-500'>
                     <View className='flex flex-row absolute z-10 top-16 items-center justify-start px-5'>
@@ -42,7 +42,7 @@ const RideLayout = ({
 
                 <BottomSheet
                     ref={bottomSheetRef}
-                    snapPoints={snapPoints || ['40%', '85%']}
+                    snapPoints={snapPoints || ['40%', '95%']}
                     index={0}
                 >
                     <BottomSheetView style={{ flex: 1, padding: 20 }}>
