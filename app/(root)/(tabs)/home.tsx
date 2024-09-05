@@ -7,7 +7,7 @@ import { useLocationStore } from '@/store';
 import { useAuth, useUser } from '@clerk/clerk-expo'
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
-import { Href, router } from 'expo-router';
+import { router } from 'expo-router';
 import { useFetch } from '@/lib/fetch';
 
 export default function Page() {
@@ -22,7 +22,13 @@ export default function Page() {
     router.replace('/(auth)/sign-in');
   };
 
-  const handleDestinationPress = (location: { latitude: number; longitude: number; address: string; }) => {
+  const handleDestinationPress = (
+    location: {
+      latitude: number;
+      longitude: number;
+      address: string;
+    }
+  ) => {
     setDestinationLocation(location);
     router.push("/(root)/find-ride");
   };
@@ -85,7 +91,7 @@ export default function Page() {
           <>
             <View className='flex flex-row items-center justify-between my-5'>
               <Text className='text-2xl capitalize font-JakartaExtraBold'>
-                Welcome, {user?.fullName || user?.emailAddresses[0].emailAddress.split("@")[0]} 👋
+                {user?.fullName || user?.emailAddresses[0].emailAddress.split("@")[0] || 'Welcome'}
               </Text>
 
               <TouchableOpacity onPress={handleSignOut} className='justify-center items-center w-10 h-10 rounded-full bg-white'>

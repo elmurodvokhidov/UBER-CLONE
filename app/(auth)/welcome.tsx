@@ -1,6 +1,6 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Href, router } from "expo-router";
+import { router } from "expo-router";
 import Swiper from "react-native-swiper";
 import { useRef, useState } from "react";
 import { onboarding } from "@/constants";
@@ -14,7 +14,7 @@ const OnBoarding = () => {
     return (
         <SafeAreaView className="flex h-full items-center justify-between bg-white">
             <TouchableOpacity
-                onPress={() => router.replace("/(auth)/sign-up" as Href)}
+                onPress={() => router.replace("/(auth)/sign-up")}
                 className="w-full flex items-end justify-end p-5"
             >
                 <Text className="text-black text-md font-JakartaBold">Skip</Text>
@@ -52,7 +52,7 @@ const OnBoarding = () => {
                 title={isLastSlide ? "Get Started" : "Next"}
                 onPress={() =>
                     isLastSlide
-                        ? router.replace("/(auth)/sign-up" as Href)
+                        ? router.replace("/(auth)/sign-up")
                         : swiperRef.current?.scrollBy(1)
                 }
                 className="w-11/12 mt-10"
