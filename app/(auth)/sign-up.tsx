@@ -18,10 +18,11 @@ const SignUp = () => {
   const onSignUpPress = async () => {
     if (!isLoaded) return;
     try {
-      await signUp.create({ emailAddress: form.email, password: form.password, })
-      await signUp.prepareEmailAddressVerification({ strategy: 'email_code' })
+      await signUp.create({ emailAddress: form.email, password: form.password, });
+      await signUp.prepareEmailAddressVerification({ strategy: 'email_code' });
       setVerification({ ...verification, state: "pending" });
     } catch (err: any) {
+      console.log(JSON.stringify(err, null, 2));
       Alert.alert("Error", err.errors[0].longMessage);
     }
   }
